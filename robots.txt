@@ -1,0 +1,8 @@
+# robots.txt for My Website
+
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /tmp/
+Allow: /
+

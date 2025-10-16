@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cooking Tips & Blogs | Foodie Rover</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="" sizes="16x16" href="Foodie rover Sk.png">
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff4f4, #fffafa, #ffeaea);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar-brand {
+      font-size: 30px;
+      color: var(--text) !important;
+      font-weight: bold;
+    }
+
+    .blog-section {
+      padding: 80px 20px;
+      background: #fffdfd;
+    }
+
+    .blog-section h2 {
+      text-align: center;
+      color: #8b2c2c;
+      font-weight: 700;
+      margin-bottom: 50px;
+    }
+
+    .lo-btn {
+      padding: 8px 12px;
+      background-color: rgb(156, 39, 39);
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .lo-btn:hover {
+      background-color: rgb(132, 31, 31);
+      color: white;
+    }
+
+    .blog-card {
+      background: #fff;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .blog-card img {
+      border-radius: 15px 15px 0 0;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-card .card-body {
+      padding: 25px;
+    }
+
+    .blog-card h5 {
+      color: #8b2c2c;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .blog-card p {
+      color: #555;
+    }
+
+    footer {
+      margin-top: auto;
+    }
+
+    /* Modal Styling */
+    .modal-content {
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-header {
+      background: #8b2c2c;
+      color: white;
+      border-bottom: none;
+    }
+
+    .modal-body img {
+      border-radius: 10px;
+      margin-bottom: 15px;
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .modal-footer {
+      border-top: none;
+    }
+    section.container.my-5.text-center {
+  background: #fffdfd;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.08);
+  padding: 40px 20px;
+}
+</style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="index.html">FOODIE ROVER</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+        aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-lg-4">
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="reviews.html">Ratings & Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="Tips and blogs.html">Tips & Blogs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-semibold text-dark" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        <button id="openLoginPopup" class="btn lo-btn">Login</button>
+<button id="logoutBtn" class="btn lo-btn" style="display: none;">Logout</button>
+
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left side: Heading -->
+        <div class="col-md-12 mb-4 mb-md-0 text-white">
+          <h1 class="display-6 fw-bold">Your Personal Recipe Coach,<br>At Your Finger Tips </h1>
+          <p class="lead">Cook Smarter, Not Harder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <div class="container">
+      <h2><i class="fa-solid fa-book-open"></i> Cooking Tips & Blogs</h2>
+      <div class="row g-4">
+        <!-- Blog 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="Biryani-blog.jpg" alt="Biryani Tips">
+            <div class="card-body">
+              <h5>5 Tips for Perfect Biryani</h5>
+              <p>Use aged basmati rice, layer meat and rice properly, and seal the pot for authentic dum aroma...</p>
+              <a href="#" class="text-danger fw-semibold read-more" data-bs-toggle="modal"
+                data-bs-target="#biryaniModal">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="Breakfast-blog.jpg" alt="Healthy Breakfast">
+            <div class="card-body">
+              <h5>Healthy Breakfast in 10 Minutes</h5>
+              <p>Quick smoothies, oats, or scrambled eggs can fuel your morning — no excuses for skipping...</p>
+              <a href="#" class="text-danger fw-semibold read-more" data-bs-toggle="modal"
+                data-bs-target="#breakfastModal">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="blog-spices.jpg" alt="Store Spices">
+            <div class="card-body">
+              <h5>How to Store Spices Properly</h5>
+              <p>Keep spices in airtight jars, away from sunlight and heat. Freshly ground ones last longer...</p>
+              <a href="#" class="text-danger fw-semibold read-more" data-bs-toggle="modal"
+                data-bs-target="#spicesModal">Read More →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="blog-knife.jpg" alt="Knife Skills">
+            <div class="card-body">
+              <h5>Mastering Basic Knife Skills</h5>
+              <p>Learn how to chop, dice, and slice like a pro — proper knife handling makes cooking faster and safer...
+              </p>
+              <a href="#" class="text-danger fw-semibold" data-bs-toggle="modal" data-bs-target="#knifeModal">Read More
+                →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="blogs-snacks.jpg" alt="Healthy Snacks">
+            <div class="card-body">
+              <h5>10 Healthy Snacks You Can Make at Home</h5>
+              <p>Skip the junk! Try these quick, nutritious snack recipes that keep your energy high all day...</p>
+              <a href="#" class="text-danger fw-semibold" data-bs-toggle="modal" data-bs-target="#snackModal">Read More
+                →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card blog-card">
+            <img src="food-storage.jpg" alt="Food Storage">
+            <div class="card-body">
+              <h5>Smart Food Storage Tips</h5>
+              <p>Reduce waste and keep your food fresh longer with these clever fridge and pantry organization ideas...
+              </p>
+              <a href="#" class="text-danger fw-semibold" data-bs-toggle="modal" data-bs-target="#storageModal">Read
+                More →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+<!-- Blog 1 Modal -->
+<div class="modal fade" id="biryaniModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">5 Tips for Perfect Biryani</h5>
+      </div>
+      <div class="modal-body">
+        <img src="Biryani-blog.jpg" alt="Biryani">
+        <p>Making the perfect biryani requires patience...</p>
+        <ol>
+          <li>Use aged basmati rice for long, fluffy grains.</li>
+          <li>Marinate meat with yogurt and spices for at least 4 hours.</li>
+          <li>Layer rice and meat alternately for perfect flavor blending.</li>
+          <li>Seal the lid with dough to trap steam (dum cooking).</li>
+          <li>Top with fried onions and saffron milk for aroma.</li>
+        </ol>
+        <button class="btn btn-outline-success likeBtn" data-id="biryani">
+          <i class="fa-solid fa-thumbs-up text-success"></i> Like <span class="likeCount">0</span>
+        </button>
+        <button class="btn btn-outline-danger dislikeBtn" data-id="biryani">
+          <i class="fa-solid fa-thumbs-down text-danger"></i> Dislike <span class="dislikeCount">0</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn lo-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog 2 Modal -->
+<div class="modal fade" id="breakfastModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Healthy Breakfast in 10 Minutes</h5>
+      </div>
+      <div class="modal-body">
+        <img src="Breakfast-blog.jpg" alt="Breakfast">
+        <p>Start your day right with these quick breakfast ideas:</p>
+        <ul>
+          <li>Blend fruits, milk, and oats for a smoothie.</li>
+          <li>Scrambled eggs with veggies.</li>
+          <li>Overnight oats.</li>
+          <li>Greek yogurt with honey and berries.</li>
+        </ul>
+        <button class="btn btn-outline-success likeBtn" data-id="breakfast">
+          <i class="fa-solid fa-thumbs-up text-success"></i> Like <span class="likeCount">0</span>
+        </button>
+        <button class="btn btn-outline-danger dislikeBtn" data-id="breakfast">
+          <i class="fa-solid fa-thumbs-down text-danger"></i> Dislike <span class="dislikeCount">0</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn lo-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog 3 Modal -->
+<div class="modal fade" id="spicesModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">How to Store Spices Properly</h5>
+      </div>
+      <div class="modal-body">
+        <img src="blog-spices.jpg" alt="Spices">
+        <ul>
+          <li>Store in airtight containers.</li>
+          <li>Away from heat and sunlight.</li>
+          <li>Label and date jars.</li>
+          <li>Grind small batches for freshness.</li>
+        </ul>
+        <button class="btn btn-outline-success likeBtn" data-id="spices">
+          <i class="fa-solid fa-thumbs-up text-success"></i> Like <span class="likeCount">0</span>
+        </button>
+        <button class="btn btn-outline-danger dislikeBtn" data-id="spices">
+          <i class="fa-solid fa-thumbs-down text-danger"></i> Dislike <span class="dislikeCount">0</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn lo-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog 4 Modal -->
+<div class="modal fade" id="knifeModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Mastering Basic Knife Skills</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img src="blog-knife.jpg" alt="Knife Skills">
+        <ul>
+          <li>Use a sharp knife.</li>
+          <li>Hold your knife properly.</li>
+          <li>Use the claw grip.</li>
+          <li>Practice basic cuts daily.</li>
+          <li>Clean and dry knives immediately.</li>
+        </ul>
+        <button class="btn btn-outline-success likeBtn" data-id="knife">
+          <i class="fa-solid fa-thumbs-up text-success"></i> Like <span class="likeCount">0</span>
+        </button>
+        <button class="btn btn-outline-danger dislikeBtn" data-id="knife">
+          <i class="fa-solid fa-thumbs-down text-danger"></i> Dislike <span class="dislikeCount">0</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn lo-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog 5 Modal -->
+<div class="modal fade" id="snackModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">10 Healthy Snacks You Can Make at Home</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li>Greek yogurt with honey and granola.</li>
+          <li>Roasted chickpeas with paprika.</li>
+          <li>Apple slices with peanut butter.</li>
+          <li>Veggie sticks with hummus dip.</li>
+          <li>Homemade popcorn with olive oil.</li>
+          <li>Fruit smoothies.</li>
+          <li>Boiled eggs.</li>
+          <li>Mini cheese sandwiches.</li>
+          <li>Oatmeal energy bites.</li>
+          <li>Frozen banana ice cream.</li>
+        </ol>
+        <button class="btn btn-outline-success likeBtn" data-id="snacks">
+          <i class="fa-solid fa-thumbs-up text-success"></i> Like <span class="likeCount">0</span>
+        </button>
+        <button class="btn btn-outline-danger dislikeBtn" data-id="snacks">
+          <i class="fa-solid fa-thumbs-down text-danger"></i> Dislike <span class="dislikeCount">0</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn lo-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Blog 6 Modal -->
+<div class="modal fade" id="storageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Smart Food Storage Tips</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li>Store dry goods in clear containers.</li>
+          <li>Keep perishable foods at the front.</li>
+          <li>Freeze leftovers in small portions.</li>
+          <li>Use glass jars for visibility.</li>
+          <li>Check expiry dates weekly.</li>
+        </ul>
+        <button class="btn btn-outline-success likeBtn" data-id="storage">
+          <i class="fa-solid fa-thumbs-up text-success"></i> Like <span class="likeCount">0</span>
+        </button>
+        <button class="btn btn-outline-danger dislikeBtn" data-id="storage">
+          <i class="fa-solid fa-thumbs-down text-danger"></i> Dislike <span class="dislikeCount">0</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button class="btn lo-btn" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Overall Reactions Section -->
+<section class="container my-5 text-center">
+  <h4>📊 Overall Reactions</h4>
+  <p class="text-muted">Here's how our readers are responding to the blogs:</p>
+  <div class="d-flex justify-content-center gap-5 mt-3 flex-wrap">
+    <div>
+      <h5><i class="fa-solid fa-thumbs-up text-success"></i> Total Likes</h5>
+      <p id="totalBlogLikes" class="display-6 text-success">0</p>
+    </div>
+    <div>
+      <h5><i class="fa-solid fa-thumbs-down text-danger"></i> Total Dislikes</h5>
+      <p id="totalBlogDislikes" class="display-6 text-danger">0</p>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <div class="body-footer">
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>About Us</h3>
+          <p>Recipe Finder is your cooking partner. Discover delicious recipes, tips, and cooking hacks that make your
+            meals more enjoyable!</p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="Tips and blogs.html">Tips & Blogs</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2025 Recipe Finder | All Rights Reserved
+      </div>
+    </footer>
+  </div>
+
+  <!--  Popup Overlay -->
+  <div class="popup-overlay" id="loginPopupOverlay">
+    <div class="popup-content">
+      <div class="form-container" id="formContainer">
+
+        <!--  Login Form -->
+        <div class="form login-form">
+          <h2>Recipes Finder</h2>
+          <h3>Login</h3>
+          <input type="email" placeholder="Email" id="loginEmail" required />
+          <input type="password" placeholder="Password" id="loginPassword" required />
+          <a href="#" class="forgot">Forgot password?</a>
+          <button id="loginSubmit" class="lo-btn">Login</button>
+          <p>Don't have an account? <a href="#" onclick="showSignUp()">Sign up</a></p>
+        </div>
+
+        <!--  Signup Form -->
+        <div class="form signup-form">
+          <h2>Recipes Finder</h2>
+          <h3>Sign Up</h3>
+          <input type="text" placeholder="Full Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" required />
+          <input type="password" placeholder="Confirm Password" required />
+          <button class="lo-btn">Create Account</button>
+          <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--  Success Popup -->
+  <div class="success-popup" id="successPopup">
+    <div class="success-box">
+      <h3>Login Successful!</h3>
+    </div>
+  </div>
+
+  <!-- Invalid Popup -->
+  <div class="invalid-popup" id="invalidPopup">
+    <div class="invalid-box">
+      <h3>Invalid Email or Password!</h3>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // =================== NAVBAR LOGO ===================
+    const navMenu = document.getElementById('navMenu');
+    const logo = document.querySelector('.navbar-brand');
+  
+    navMenu.addEventListener('show.bs.collapse', () => (logo.style.display = 'none'));
+    navMenu.addEventListener('hide.bs.collapse', () => (logo.style.display = 'block'));
+  
+    // =================== LOGIN STATUS HELPER ===================
+    function isUserLoggedIn() {
+      return localStorage.getItem("isLoggedIn") === "true";
+    }
+  
+    // Small popup for restricted actions
+    function showLoginRequiredPopup() {
+      const popup = $('<div class="login-required-popup">Please login to perform this action!</div>');
+      $('body').append(popup);
+      popup.css({
+        position: 'fixed',
+        top: '40%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        background: '#fff',
+        color: '#a12727',
+        border: '2px solid #a12727',
+        padding: '15px 30px',
+        borderRadius: '10px',
+        fontWeight: '600',
+        boxShadow: '0 4px 15px rgba(0,0,0,0.2)',
+        zIndex: '9999',
+        display: 'none'
+      });
+      popup.fadeIn();
+      setTimeout(() => popup.fadeOut(() => popup.remove()), 2000);
+    }
+  
+    // =================== LOGIN & POPUP LOGIC ===================
+    const savedEmail = "test@example.com";
+    const savedPassword = "12345";
+  
+    function showSignUp() {
+      document.getElementById("loginPopupOverlay").classList.add("signup-mode");
+    }
+  
+    function showLogin() {
+      document.getElementById("loginPopupOverlay").classList.remove("signup-mode");
+    }
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginPopup = document.getElementById("loginPopupOverlay");
+      const openBtn = document.getElementById("openLoginPopup");
+      const loginBtn = document.getElementById("loginSubmit");
+      const logoutBtn = document.getElementById("logoutBtn");
+  
+      // Check login status on page load
+      if (isUserLoggedIn()) {
+        logoutBtn.style.display = "inline-block";
+        openBtn.style.display = "none";
+      }
+  
+      // Show login popup
+      openBtn.addEventListener("click", () => (loginPopup.style.display = "flex"));
+  
+      // Close popup on background click
+      loginPopup.addEventListener("click", (e) => {
+        if (e.target.id === "loginPopupOverlay") loginPopup.style.display = "none";
+      });
+  
+      // Login button
+      loginBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+  
+        if (email === savedEmail && password === savedPassword) {
+          localStorage.setItem("isLoggedIn", "true");
+          showSuccessPopup();
+  
+          //  Show logout instantly
+          logoutBtn.style.display = "inline-block";
+          openBtn.style.display = "none";
+        } else {
+          showInvalidPopup();
+        }
+      });
+  
+      //  Logout button
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("isLoggedIn");
+        logoutBtn.style.display = "none";
+        openBtn.style.display = "inline-block";
+  
+        // Optional small popup
+        const popup = document.createElement("div");
+        popup.textContent = "Logged out successfully!";
+        Object.assign(popup.style, {
+          position: "fixed",
+          top: "40%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          background: "#fff",
+          border: "2px solid #a12727",
+          padding: "15px 30px",
+          borderRadius: "10px",
+          color: "#a12727",
+          fontWeight: "600",
+          zIndex: "9999",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+        });
+        document.body.appendChild(popup);
+        setTimeout(() => popup.remove(), 2000);
+      });
+    });
+  
+    // =================== SUCCESS / INVALID POPUPS ===================
+    function showSuccessPopup() {
+      const successPopup = document.getElementById("successPopup");
+      const overlay = document.getElementById("loginPopupOverlay");
+  
+      successPopup.style.display = "block";
+      setTimeout(() => {
+        successPopup.style.display = "none";
+        overlay.style.display = "none";
+      }, 2000);
+    }
+  
+    function showInvalidPopup() {
+      const invalidPopup = document.getElementById("invalidPopup");
+      invalidPopup.style.display = "block";
+      setTimeout(() => (invalidPopup.style.display = "none"), 2000);
+    }
+  
+// =================== BLOG LIKE / DISLIKE SYSTEM ===================
+let blogLikes = JSON.parse(localStorage.getItem("blogLikes")) || {};
+let blogDislikes = JSON.parse(localStorage.getItem("blogDislikes")) || {};
+
+// Update buttons inside modal when it opens
+function updateBlogModalCounts(modal) {
+  modal.querySelectorAll(".likeBtn").forEach(btn => {
+    const id = btn.dataset.id;
+    btn.querySelector(".likeCount").textContent = blogLikes[id] || 0;
+    btn.disabled = !isUserLoggedIn();
+  });
+  modal.querySelectorAll(".dislikeBtn").forEach(btn => {
+    const id = btn.dataset.id;
+    btn.querySelector(".dislikeCount").textContent = blogDislikes[id] || 0;
+    btn.disabled = !isUserLoggedIn();
+  });
+}
+
+document.querySelectorAll(".modal").forEach(modal => {
+  modal.addEventListener("show.bs.modal", () => updateBlogModalCounts(modal));
+});
+
+// Handle clicks on Like/Dislike
+document.addEventListener("click", function(e) {
+  const likeBtn = e.target.closest(".likeBtn");
+  const dislikeBtn = e.target.closest(".dislikeBtn");
+
+  if (likeBtn) {
+    if (!isUserLoggedIn()) return showLoginRequiredPopup();
+
+    const id = likeBtn.dataset.id;
+    blogLikes[id] = (blogLikes[id] || 0) + 1;
+    localStorage.setItem("blogLikes", JSON.stringify(blogLikes));
+    likeBtn.querySelector(".likeCount").textContent = blogLikes[id];
+    likeBtn.disabled = true;
+
+    const sibling = likeBtn.closest(".modal").querySelector(".dislikeBtn");
+    if (sibling) sibling.disabled = true;
+
+    updateOverallReactions();
+  }
+
+  if (dislikeBtn) {
+    if (!isUserLoggedIn()) return showLoginRequiredPopup();
+
+    const id = dislikeBtn.dataset.id;
+    blogDislikes[id] = (blogDislikes[id] || 0) + 1;
+    localStorage.setItem("blogDislikes", JSON.stringify(blogDislikes));
+    dislikeBtn.querySelector(".dislikeCount").textContent = blogDislikes[id];
+    dislikeBtn.disabled = true;
+
+    const sibling = dislikeBtn.closest(".modal").querySelector(".likeBtn");
+    if (sibling) sibling.disabled = true;
+
+    updateOverallReactions();
+  }
+});
+
+// Update overall reactions
+function updateOverallReactions() {
+  let totalLikes = 0;
+  let totalDislikes = 0;
+  for (let id in blogLikes) totalLikes += blogLikes[id];
+  for (let id in blogDislikes) totalDislikes += blogDislikes[id];
+  document.getElementById("totalBlogLikes").textContent = totalLikes;
+  document.getElementById("totalBlogDislikes").textContent = totalDislikes;
+}
+
+// Initial call
+updateOverallReactions();
+
+  
+    updateOverallReactions();
+    document.addEventListener("click", (e) => {
+      if (e.target.closest(".likeBtn") || e.target.closest(".dislikeBtn")) {
+        updateOverallReactions();
+      }
+    });
+  </script>
+  
+</body>
+</html>
